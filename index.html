@@ -1,67 +1,81 @@
 <!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+    <title>Self Service Order</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <title>Self Service Order</title>
-</head>
-
-<body>
-
-  <main id="app">
-    <section class="items">
-      <h4>Selecione os produtos</h4>
-      <!-- Loop para renderização condicional da lista de produtos usando `v-for` -->
-      <div v-for='product in products' class="product">
-        <div class="photo">
-          <!-- Para renderização dinâmica de conteúdos de atributos HTML, usamos `:` antes do atributo -->
-          <img :src='product.photo'>
-        </div>
-        <div class="description">
-          <!-- Para renderização dinâmica de conteúdos das tags, usamos Declarative Rendering, conforme abaixo -->
-          <span class="name">{{ product.name }}</span>
-          <span class="price">{{ product.price }}</span>
-          <div class="quantity-area">
-            <button>-</button>
-            <span class="quantity">1</span>
-            <button>+</button>
+  <body>
+    <main id="app">
+      <section class="items">
+        <h4>Selecione os produtos</h4>
+        <!-- Loop para renderização condicional da lista de produtos usando `v-for` -->
+        <!-- Handling de eventos usando `v-on:click` ou `@click` -->
+        <div
+          v-for="product in products"
+          @click="product.active = !product.active"
+          class="product"
+          :class="{ selected: product.active }"
+        >
+          <div class="photo">
+            <!-- Para renderização dinâmica de conteúdos de atributos HTML, usamos `:` antes do atributo (abreviação de v-bind:) -->
+            <img :src="product.photo" />
+          </div>
+          <div class="description">
+            <!-- Para renderização dinâmica de conteúdos das tags, usamos Declarative Rendering, conforme abaixo -->
+            <span class="name">{{ product.name }}</span>
+            <span class="price">{{ product.price }}</span>
+            <div class="quantity-area">
+              <button>-</button>
+              <span class="quantity">1</span>
+              <button>+</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="summary">
-      <strong>Resumo do pedido</strong>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1x Big Mac</td>
-            <td>5.99</td>
-          </tr>
+      <section class="summary">
+        <strong>Resumo do pedido</strong>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1x Big Mac</td>
+              <td>5.99</td>
+            </tr>
 
-          <tr>
-            <th>Total</th>
-            <th>5.99</th>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+            <tr>
+              <th>Total</th>
+              <th>5.99</th>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
 
-  </main>
-
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="scripts.js"></script>
-</body>
-
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="scripts.js"></script>
+  </body>
 </html>
