@@ -21,7 +21,13 @@ const handlingForms = {
   },
   methods: {
     addMember: function () {
-      this.members.push(this.newMember);
+      if (this.newMember.fname && this.newMember.lname && this.newMember.instrument) {
+        this.members.push(this.newMember);
+        // Passamos um objeto vazio tanto para limpar os campos de input quanto para desativar o two-way data binding, que poderia permitir que o dado fosse modificado novamente pelo input
+        this.newMember = {};
+      } else {
+        alert('All fields are required');
+      }
     }
   }
 };
