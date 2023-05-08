@@ -1,0 +1,14 @@
+- [x] [**Project 1 - Self Service Machine**](https://github.com/sucodelarangela/vuejs3-udemy/tree/main/Project%201%20-%20Self%20Service%20Machine)
+  - Vue installation via CDN;
+  - Declarative Rendering;
+  - Directives:
+    - `v-for`;
+    - `v-if`;
+    - `v-bind` or `:`;
+    - `v-on` or `@`.
+  - Event Handling;
+  - Event Modifiers:
+    - `.stop` (stop propagation)
+  - Style Binding;
+  - Computed Properties / Methods.
+- [x] **Project - Working with Forms**
