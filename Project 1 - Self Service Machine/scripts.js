@@ -72,6 +72,19 @@ const SelfServiceMachine = {
     return {
       products: products
     };
+  },
+  // Para lógicas mais complexas, usaremos Computed Properties / Methods
+  methods: {
+    // Cada propriedade aqui é um método
+    total: function () {
+      let total = 0;
+      this.products.forEach(product => {
+        if (product.active) {
+          total += product.price * product.quantity;
+        }
+      });
+      return total.toFixed(2);
+    }
   }
 };
 
