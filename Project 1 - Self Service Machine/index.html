@@ -42,10 +42,19 @@
             <!-- Para renderização dinâmica de conteúdos das tags, usamos Declarative Rendering, conforme abaixo -->
             <span class="name">{{ product.name }}</span>
             <span class="price">{{ product.price }}</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
+            <div
+              class="quantity-area"
+              v-if="product.active"
+            >
+              <button
+                @click.stop="product.quantity -= 1"
+                :disabled="product.quantity <= 1"
+              >
+                -
+              </button>
+              <span class="quantity">{{ product.quantity }}</span>
+              <!-- Usamos `.stop` para parar a propagação do click do `button` para a `div` (bubbling), o que chamamos de "stop propagation" -->
+              <button @click.stop="product.quantity += 1">+</button>
             </div>
           </div>
         </div>
