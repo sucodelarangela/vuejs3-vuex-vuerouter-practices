@@ -21,3 +21,5 @@
     - `created()`;
     - `beforeUpdate()`;
     - `updated()`.
+- [x] **Project 4 - Quiz Game**
+  - Vue installation via `vue/cli`
