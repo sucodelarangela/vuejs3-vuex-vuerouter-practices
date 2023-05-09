@@ -11,4 +11,7 @@
     - `.stop` (stop propagation)
   - Style Binding;
   - Computed Properties / Methods.
-- [x] **Project - Working with Forms**
+- [x] [**Project 2 - Working with Forms**](https://github.com/sucodelarangela/vuejs3-udemy/tree/main/Project%202%20-%20Working%20With%20Forms)
+  - Two-way Data Binding Concept
+  - Directive: `v-model`
+- [ ] **Project 3 - Todo List**
