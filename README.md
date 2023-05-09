@@ -14,4 +14,5 @@
 - [x] [**Project 2 - Working with Forms**](https://github.com/sucodelarangela/vuejs3-udemy/tree/main/Project%202%20-%20Working%20With%20Forms)
   - Two-way Data Binding Concept
   - Directive: `v-model`
-- [ ] **Project 3 - Todo List**
+- [x] [**Project 3 - Todo List**](https://github.com/sucodelarangela/vuejs3-udemy/tree/main/Project%203%20-%20Todo%20List)
+  - This project is an exercise which uses the concepts and methods from previous projects
