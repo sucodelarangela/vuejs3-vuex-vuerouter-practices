@@ -15,4 +15,9 @@
   - Two-way Data Binding Concept
   - Directive: `v-model`
 - [x] [**Project 3 - Todo List**](https://github.com/sucodelarangela/vuejs3-udemy/tree/main/Project%203%20-%20Todo%20List)
-  - This project is an exercise which uses the concepts and methods from previous projects
+  - This project is an exercise which uses the concepts and methods from previous projects; and
+  - Lifecycle Hooks:
+    - `beforeCreate()`;
+    - `created()`;
+    - `beforeUpdate()`;
+    - `updated()`.
