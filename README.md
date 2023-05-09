@@ -21,5 +21,5 @@
     - `created()`;
     - `beforeUpdate()`;
     - `updated()`.
-- [x] **Project 4 - Quiz Game**
+- [x] [**Project 4 - Quiz Game**](https://github.com/sucodelarangela/vuejs3-practices/tree/main/project4-quiz-game)
   - Vue installation via `vue/cli`
