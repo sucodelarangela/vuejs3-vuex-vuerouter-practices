@@ -10,10 +10,10 @@
   - Event Modifiers:
     - `.stop` (stop propagation)
   - Style Binding;
-  - Computed Properties / Methods.
+  - Methods.
 - [x] [**Project 2 - Working with Forms**](https://github.com/sucodelarangela/vuejs3-udemy/tree/main/Project%202%20-%20Working%20With%20Forms)
-  - Two-way Data Binding Concept
-  - Directive: `v-model`
+  - Two-way Data Binding Concept;
+  - Directive: `v-model`.
 - [x] [**Project 3 - Todo List**](https://github.com/sucodelarangela/vuejs3-udemy/tree/main/Project%203%20-%20Todo%20List)
   - This project is an exercise which uses the concepts and methods from previous projects; and
   - Lifecycle Hooks:
@@ -21,5 +21,8 @@
     - `created()`;
     - `beforeUpdate()`;
     - `updated()`.
-- [x] [**Project 4 - Quiz Game**](https://github.com/sucodelarangela/vuejs3-practices/tree/main/project4-quiz-game)
-  - Vue installation via `vue/cli`
+- [ ] [**Project 4 - Quiz Game**](https://github.com/sucodelarangela/vuejs3-practices/tree/main/project4-quiz-game)
+  - Vue installation via `vue/cli`;;
+  - Install and config `axios` and `vue-axios`;
+  - HTTP Requests with `axios` and data rendering on screen;
+  - Computed properties;
