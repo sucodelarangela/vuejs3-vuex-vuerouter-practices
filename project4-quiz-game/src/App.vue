@@ -1,15 +1,21 @@
 <template>
-  <div>
+  <template v-if="question">
     <!-- A API da Open Trivia retorna algumas perguntas com HTML entities, que não são convertidas quando se usa Declarative Rendering (com {{}}). Para contornar isso, podemos renderizar o texto da API usando a diretiva `v-html`, que fará essa conversão: -->
     <h1 v-html="question"></h1>
     <template v-for="answer in answers" :key="answer">
-      <input id="option" type="radio" name="options" value="answer" />
-      <label for="option" v-html="answer"></label><br />
+      <input :id="answer" type="radio" name="options" :value="answer" v-model="chosenAnswer"
+        :disabled="answerSubmitted" />
+      <label :for="answer" v-html="answer"></label><br />
     </template>
-    <button class="send" type="button">
+    <button class="send" type="button" @click="submitAnswer()" v-if="!answerSubmitted">
       Send
     </button>
-  </div>
+    <section v-if="answerSubmitted" class="result">
+      <h4 v-if="chosenAnswer === correctAnswer">&#9989; Congratulations, the answer "{{ correctAnswer }}" is correct.</h4>
+      <h4 v-else>&#10060; I'm sorry, you picked the wrong answer. The correct is "{{ correctAnswer }}".</h4>
+      <button class="send" type="button">Next question</button>
+    </section>
+  </template>
 </template>
 
 <script>
@@ -21,6 +27,8 @@ export default {
       question: undefined,
       incorrectAnswers: [],
       correctAnswer: undefined,
+      chosenAnswer: undefined,
+      answerSubmitted: false
     };
   },
   // Para criar um array com todas as respostas, vamos criar uma computed property, pois não é uma boa prática fazer isso dentro dos lifecycle methods. Também faremos um shuffle de seus elementos, para variar a posição da resposta correta.
@@ -34,6 +42,20 @@ export default {
       // Insere na posição aleatória, sem eliminar nenhum elemento, a resposta correta
       answers.splice(position, 0, this.correctAnswer);
       return answers;
+    }
+  },
+  methods: {
+    submitAnswer() {
+      if (!this.chosenAnswer) {
+        alert('Escolha uma opção');
+      } else {
+        this.answerSubmitted = true;
+        if (this.chosenAnswer === this.correctAnswer) {
+          console.log('%cAcertou', 'color: lime');
+        } else {
+          console.log('%cErrou', 'color: red');
+        }
+      }
     }
   },
   // Lifecycle method: pegamos os dados da API assim que o app for inicializado
