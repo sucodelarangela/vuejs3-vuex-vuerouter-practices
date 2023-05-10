@@ -22,10 +22,13 @@
     - `beforeUpdate()`;
     - `updated()`.
 - [x] [**Project 4 - Quiz Game**](https://github.com/sucodelarangela/vuejs3-practices/tree/main/project4-quiz-game)
-  - Vue installation via `vue/cli`;;
+  - Vue installation via `vue/cli`;
   - Install and config `axios` and `vue-axios`;
   - HTTP Requests with `axios` and data rendering on screen;
   - Computed properties;
   - Directive: `v-else`;
   - Components and Props
 - [ ] **Project 5 - Shopping Bag**
+  - `vue-router`;
+  - `vuex`;
+  - Define actions and mutations on Vuex store;

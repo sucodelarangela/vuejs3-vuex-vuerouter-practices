@@ -12,6 +12,7 @@
 <script>
 export default {
   computed: {
+    // Buscando dados diretamente da `$store`
     products() {
       return this.$store.state.products;
     }
