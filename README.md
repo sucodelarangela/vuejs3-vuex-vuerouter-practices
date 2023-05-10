@@ -28,3 +28,4 @@
   - Computed properties;
   - Directive: `v-else`;
   - Components and Props
+- [ ] **Project 5 - Shopping Bag**
