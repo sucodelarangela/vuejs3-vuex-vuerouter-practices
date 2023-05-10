@@ -4,7 +4,8 @@
 
       <div class="item">
         <div class="remove">Remover Produto</div>
-        <div class="photo"><img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt=""></div>
+        <div class="photo"><img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="">
+        </div>
         <div class="description">Mens Casual Premium Slim Fit T-Shirts </div>
         <div class="price">
           <span class="quantity-area">
@@ -27,19 +28,20 @@ export default {
   name: 'ShoppingBasket',
 
   methods: {
-   
+
   },
- 
-}
+
+};
 </script>
 
 <style lang="scss">
-
 .basket {
-  padding: 60px 0;  
+  padding: 60px 0;
+
   .items {
     max-width: 800px;
     margin: auto;
+
     .item {
       display: flex;
       justify-content: space-between;
@@ -71,7 +73,7 @@ export default {
 
         .quantity {
 
-            margin: 0 4px;
+          margin: 0 4px;
         }
       }
 
@@ -97,15 +99,15 @@ export default {
         }
       }
     }
-      .grand-total {
-          font-size: 24px;
-          font-weight: bold;
-          text-align: right;
-          margin-top: 8px;
-      }
+
+    .grand-total {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 8px;
+    }
 
   }
 
 }
-
 </style>

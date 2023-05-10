@@ -1,15 +1,25 @@
 <template>
+  <!-- A `navbar`, por estar fora do `router-view`, será mostrada em todas as páginas -->
   <div id="nav">
-    <router-link to="/">Início </router-link>
+    <!-- O `router-link` cria âncoras para navegação entre páginas -->
+    <router-link to="/">Início </router-link> -
     <router-link to="/basket">Carrinho (0)</router-link>
   </div>
+  <!-- Todos os componentes roteados serão renderizados dentro do `router-view` -->
   <router-view />
 </template>
 
 <script>
-
 export default {
-
+  computed: {
+    products() {
+      return this.$store.state.products;
+    }
+  },
+  created() {
+    // `dispatch()` é usado para invocar `actions` da `store`
+    this.$store.dispatch('loadProducts');
+  }
 }
 
 </script>
