@@ -15,6 +15,10 @@ export default createStore({
     },
     addToBag(state, product) {
       state.productsInBag.push(product);
+    },
+    removeFromBag(state, productId) {
+      let updatedBag = state.productsInBag.filter(item => item.id !== productId);
+      state.productsInBag = updatedBag;
     }
   },
   // os `states` não podem ser mudados por atribuição direta, portanto, precisamos definir `actions` para lidar com as mudanças de valores. Porém, quem realmente faz a mudança dos `states` são as `mutations`, que devem ser invocadas dentro de uma `action` através de `this.commit()`
@@ -29,6 +33,9 @@ export default createStore({
     },
     addToBag({ commit }, product) {
       commit('addToBag', product);
+    },
+    removeFromBag({ commit }, productId) {
+      commit('removeFromBag', productId);
     }
   },
   modules: {
