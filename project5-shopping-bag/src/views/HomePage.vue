@@ -1,11 +1,12 @@
 <template>
   <div class="home">
+    {{ productsInBag }}
     <div class="products">
       <div v-for="(product, index) in  products" :key="index" class="product">
         <div class="product-image" :style="{ backgroundImage: `url('${product.image}')` }"></div>
         <h4>{{ product.title }}</h4>
         <p class="price">US$ {{ product.price.toFixed(2) }}</p>
-        <button>Adicionar ao carrinho</button>
+        <button @click="addToBag(product)">Adicionar ao carrinho</button>
       </div>
     </div>
   </div>
@@ -19,8 +20,17 @@ export default {
     // Buscando dados diretamente da `$store`
     products() {
       return this.$store.state.products;
+    },
+    productsInBag() {
+      return this.$store.state.productsInBag;
     }
   },
+  methods: {
+    addToBag(product) {
+      product.quantity = 1;
+      this.$store.dispatch('addToBag', product);
+    }
+  }
 };
 </script>
 
