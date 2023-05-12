@@ -28,12 +28,12 @@
   - Computed properties;
   - Directive: `v-else`;
   - Components and Props
-- [x] **Project 5 - Shopping Bag**
+- [x] [**Project 5 - Shopping Bag**](https://github.com/sucodelarangela/vuejs3-vuex-vuerouter-practices/tree/main/project5-shopping-bag)
   - `vue-router`;
   - `vuex`;
   - Define actions and mutations on Vuex store;
   - Helper: `mapState` to avoid code repetition for state getters;
-- [ ] **Project 6 - From Vuex to Pinia**
+- [x] [**Project 6 - From Vuex to Pinia**](https://github.com/sucodelarangela/vuejs3-vuex-vuerouter-practices/tree/main/project6-vuex-to-pinia)
   - Pinia installation via `yarn`;
   - Initialization with `createPinia`;
   - Modular stores:
