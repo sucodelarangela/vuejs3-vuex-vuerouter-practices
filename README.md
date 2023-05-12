@@ -28,8 +28,10 @@
   - Computed properties;
   - Directive: `v-else`;
   - Components and Props
-- [ ] **Project 5 - Shopping Bag**
+- [x] **Project 5 - Shopping Bag**
   - `vue-router`;
   - `vuex`;
   - Define actions and mutations on Vuex store;
   - Helper: `mapState` to avoid code repetition for state getters;
+- [ ] **Project 6 - From Vuex to Pinia**
+  - Pinia installation via `yarn`;
