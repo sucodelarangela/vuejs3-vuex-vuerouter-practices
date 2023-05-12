@@ -32,3 +32,4 @@
   - `vue-router`;
   - `vuex`;
   - Define actions and mutations on Vuex store;
+  - Helper: `mapState` to avoid code repetition for state getters;

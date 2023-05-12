@@ -1,36 +1,50 @@
 <template>
   <div class="basket">
     <div class="items">
-
-      <div class="item">
-        <div class="remove">Remover Produto</div>
-        <div class="photo"><img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="">
+      <template v-if="productsInBag.length">
+        <div class="item" v-for="(product, index) in productsInBag" :key="index">
+          <div class="remove" @click="removeFromBag(product.id)">Remover Produto</div>
+          <div class="photo"><img :src="product.image" :alt="product.title">
+          </div>
+          <div class="description">{{ product.title }}</div>
+          <div class="price">
+            <span class="quantity-area">
+              <button :disabled="product.quantity <= 1" @click="product.quantity--">-</button>
+              <span class="quantity">{{ product.quantity }}</span>
+              <button @click="product.quantity++">+</button>
+            </span>
+            <span class="amount">R$ {{ (product.price * product.quantity).toFixed(2) }}</span>
+          </div>
         </div>
-        <div class="description">Mens Casual Premium Slim Fit T-Shirts </div>
-        <div class="price">
-          <span class="quantity-area">
-            <button disabled="">-</button>
-            <span class="quantity">1</span>
-            <button>+</button>
-          </span>
-          <span class="amount">R$ 22.30</span>
-        </div>
-      </div>
-      <div class="grand-total"> Total do pedido: R$ 22.30</div>
-
+        <div class="grand-total"> Total do pedido: R$ {{ orderTotal() }}</div>
+      </template>
+      <h4 v-else>Nenhum item no carrinho.</h4>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'ShoppingBasket',
-
+  computed: mapState([
+    'productsInBag'
+  ]),
   methods: {
-
-  },
-
+    removeFromBag(productId) {
+      if (confirm('Você tem certeza que quer remover o item do carrinho?')) {
+        this.$store.dispatch('removeFromBag', productId);
+      }
+    },
+    orderTotal() {
+      let total = 0;
+      this.productsInBag.forEach(item => {
+        total += item.price * item.quantity;
+      });
+      return total.toFixed(2);
+    }
+  }
 };
 </script>
 

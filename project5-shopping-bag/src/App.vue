@@ -24,6 +24,7 @@ export default {
   created() {
     // `dispatch()` é usado para invocar `actions` da `store`
     this.$store.dispatch('loadProducts');
+    this.$store.dispatch('loadBag');
   }
 }
 
