@@ -35,3 +35,10 @@
   - Helper: `mapState` to avoid code repetition for state getters;
 - [ ] **Project 6 - From Vuex to Pinia**
   - Pinia installation via `yarn`;
+  - Initialization with `createPinia`;
+  - Modular stores:
+    - Creation with `defineStore()`
+    - State declaration and usage;
+    - Lifecycle method: `setup()`;
+    - Getters declarations and usage;
+    - State change with actions;

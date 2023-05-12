@@ -1,5 +1,5 @@
 <script>
-import EventCard from '../components/EventCard.vue'
+import EventCard from '../components/EventCard.vue';
 export default {
   components: {
     EventCard
@@ -9,19 +9,19 @@ export default {
       this.$router.push({
         name: 'ErrorDisplay',
         params: { error: error }
-      })
-    })
+      });
+    });
   },
   computed: {
     events() {
-      return this.$store.state.events
+      return this.$store.state.events;
     }
   }
-}
+};
 </script>
 
 <template>
-  <h1>Events for Good</h1>
+  <h1>{{ $store.getters.numberOfEvents }} Events for Good</h1>
   <div class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>

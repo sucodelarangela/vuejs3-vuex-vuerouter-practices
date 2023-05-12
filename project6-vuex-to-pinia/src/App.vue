@@ -5,10 +5,27 @@
       <router-link :to="{ name: 'About' }">About</router-link>
       |
       <router-link :to="{ name: 'EventCreate' }">Create Event</router-link>
+      <!-- Visualizando valores de estado com Pinia -->
+      <p>Logged in as {{ userStore.firstName }}</p>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+// importando o `UserStore`
+import { useUserStore } from './stores/UserStore';
+
+export default {
+  // `setup()` é um lifecycle method que serve de ponto de entrada de dados e executa depois que todas as props estão resolvidas, mas antes que a instância do componente seja criada.
+  setup() {
+    const userStore = useUserStore();
+    return {
+      userStore
+    };
+  }
+};
+</script>
 
 <style>
 #app {
