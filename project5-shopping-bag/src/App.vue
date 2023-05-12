@@ -3,20 +3,24 @@
   <div id="nav">
     <!-- O `router-link` cria âncoras para navegação entre páginas -->
     <router-link to="/">Início </router-link> -
-    <router-link to="/basket">Carrinho (0)</router-link>
+    <router-link to="/basket">Carrinho ({{ productsInBag.length }})</router-link>
   </div>
   <!-- Todos os componentes roteados serão renderizados dentro do `router-view` -->
   <router-view />
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
-  computed: {
-    // Buscando dados diretamente da `$store`
-    products() {
-      return this.$store.state.products;
-    }
-  },
+  computed: mapState([
+    'productsInBag'
+  ]),
+  // Buscando dados diretamente da `$store`
+  //   productsInBag() {
+  //     return this.$store.state.productsInBag;
+  //   }
+  // },
   created() {
     // `dispatch()` é usado para invocar `actions` da `store`
     this.$store.dispatch('loadProducts');

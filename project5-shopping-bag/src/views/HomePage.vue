@@ -13,18 +13,23 @@
 </template>
 
 <script>
+// O `mapState` é um _helper_ do VUEX que evita repetição de código na declaração de `computed properties` e `methods` relacionados à store
+import { mapState } from 'vuex';
 
 export default {
   name: 'HomePage',
-  computed: {
-    // Buscando dados diretamente da `$store`
-    products() {
-      return this.$store.state.products;
-    },
-    productsInBag() {
-      return this.$store.state.productsInBag;
-    }
-  },
+  // usando o `mapState` para refatorar as `computed` evitando repetições de código
+  computed: mapState([
+    'products', 'productsInBag'
+  ]),
+  // Buscando dados diretamente da `$store`
+  //   products() {
+  //     return this.$store.state.products;
+  //   },
+  //   productsInBag() {
+  //     return this.$store.state.productsInBag;
+  //   }
+  // },
   methods: {
     addToBag(product) {
       product.quantity = 1;
@@ -34,7 +39,9 @@ export default {
       return this.productsInBag.find(item => item.id === product.id);
     },
     removeFromBag(productId) {
-      this.$store.dispatch('removeFromBag', productId);
+      if (confirm('Você tem certeza que quer remover o item do carrinho?')) {
+        this.$store.dispatch('removeFromBag', productId);
+      }
     }
   }
 };
