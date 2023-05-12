@@ -1,5 +1,6 @@
 <script>
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
+import { useEventStore } from '../stores/EventStore';
 
 export default {
   data() {
@@ -23,32 +24,37 @@ export default {
         time: '',
         organizer: ''
       }
-    }
+    };
+  },
+  // usando os dados do estado de EventStore
+  setup() {
+    const eventStore = useEventStore();
+    return { eventStore };
   },
   methods: {
     onSubmit() {
       const event = {
         ...this.event,
         id: uuidv4(),
-        organizer: this.$store.state.user
-      }
-      this.$store
-        .dispatch('createEvent', event)
+        organizer: this.eventStore.user
+      };
+      this.eventStore
+        .createEvent(event)
         .then(() => {
           this.$router.push({
             name: 'EventDetails',
             params: { id: event.id }
-          })
+          });
         })
         .catch(error => {
           this.$router.push({
             name: 'ErrorDisplay',
             params: { error: error }
-          })
-        })
+          });
+        });
     }
   }
-}
+};
 </script>
 
 <template>
@@ -58,12 +64,7 @@ export default {
     <form @submit.prevent="onSubmit">
       <label>Select a category: </label>
       <select v-model="event.category">
-        <option
-          v-for="option in categories"
-          :value="option"
-          :key="option"
-          :selected="option === event.category"
-        >
+        <option v-for="option in categories" :value="option" :key="option" :selected="option === event.category">
           {{ option }}
         </option>
       </select>
@@ -74,11 +75,7 @@ export default {
       <input v-model="event.title" type="text" placeholder="Title" />
 
       <label>Description</label>
-      <input
-        v-model="event.description"
-        type="text"
-        placeholder="Description"
-      />
+      <input v-model="event.description" type="text" placeholder="Description" />
 
       <h3>Where is your event?</h3>
 

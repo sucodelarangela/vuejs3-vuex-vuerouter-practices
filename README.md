@@ -41,4 +41,4 @@
     - State declaration and usage;
     - Lifecycle method: `setup()`;
     - Getters declarations and usage;
-    - State change with actions;
+    - State change with actions.
